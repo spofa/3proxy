@@ -822,7 +822,7 @@ for(;;){
 	 param->nwrites++;
  }
  inbuf = 0;
-#ifdef ANONYMOUS
+//#ifdef ANONYMOUS
  if(!anonymous){
 //		int len = strlen((char *)buf);
 //		len += sprintf((char*)buf + len, "Forwarded: for=");
@@ -847,7 +847,7 @@ for(;;){
 		}
 		sprintf((char*)buf+strlen((char *)buf), "\r\n");
  }
-#endif
+//#endif
  if(keepalive <= 1) sprintf((char*)buf+strlen((char *)buf), "%s: %s\r\n", (param->redirtype == R_HTTP)?"Proxy-Connection":"Connection", keepalive? "keep-alive":"close");
  if(param->extusername){
 	sprintf((char*)buf + strlen((char *)buf), "%s: basic ", (redirect)?"Proxy-Authorization":"Authorization");
@@ -1123,7 +1123,7 @@ struct proxydef childdef = {
 	0,
 	S_PROXY,
 	"-a - anonymous proxy\r\n"
-	"-a1 - anonymous proxy with random client IP spoofing\r\n"
+	"-a1 - anonymous proxy with random client IP spoofing -a2 - anonymous proxy with the client IP spoofing\r\n"
 };
 #include "proxymain.c"
 #endif

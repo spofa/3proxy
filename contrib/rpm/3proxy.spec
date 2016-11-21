@@ -24,7 +24,7 @@ Requires(post):   systemd
 Requires(preun):  systemd
 Requires(postun): systemd
 %else
-Requires(post):   systemd-sysv, systemd-units
+Requires(post):   chkconfig
 Requires:         initscripts
 %endif
 
